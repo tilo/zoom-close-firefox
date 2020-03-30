@@ -1,34 +1,39 @@
 {
   "manifest_version": 2,
-
   "name": "Zoom Closer",
-  "description": "This extension automatically closes the launced window from Zoom meetings.",
-  "version": "1.5",
+  "description": "Closes all Zoom meeting windows (should leave other Zoom windows open)",
+  "version": "1.0.0",
+  "developer": {
+    "name": "Matt Doyle",
+    "url": "https://github.com/mattdoyle/zoom-closer-firefox"
+  },
 
-  "icons": {
-    "16": "assets/icon-16.png",
-    "48": "assets/icon-48.png",
-    "128": "assets/icon-128.png"
+  "permissions": [
+    "tabs",
+    "storage"
+  ],
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "{c96eacb7-fa73-4a2b-9ccd-6e5d16e9e92f}",
+      "strict_min_version": "58.0a1"
+    }
   },
 
   "background": {
-    "scripts": [
-      "background.js" 
-    ] 
+      "scripts": ["background.js"]
   },
-
   "content_scripts": [
     {
-      "matches": [
-        "https://zoom.us/postattendee",
-        "https://zoom.us/j/*",
-        "https://*.zoom.us/j/*",
-        "https://zoom.us/s/*",
-        "https://*.zoom.us/s/*"
-      ],
-      "js": [
-        "content.js"
-      ]
+      "matches": ["https://*.zoom.us/*"],
+      "js": ["content.js"]
     }
-  ]
+  ],
+
+  "options_ui": {
+    "page": "options.html"
+  },
+  "icons": {
+    "48": "icons/icon-48.png",
+    "96": "icons/icon-96.png"
+  }
 }

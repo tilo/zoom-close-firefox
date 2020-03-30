@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="options.css">
+  </head>
+  <body>
+    <form>
+      <div>
+        <label for="url_pattern">Custom URL Regex:</label>
+        <span class="url-root">https://*.zoom.us/</span><input type="text" size="50" id="url_pattern" />
+        </span>
+      </div>
+      <div>
+        <label for="delay_seconds">Delay before closing (in seconds):</label>
+        <input type="text" id="delay_seconds" name="delay_seconds" size="3" />
+      </div>
+      <div>
+        <button type="submit">Save</button>
+      </div>
+      <br /><br />
+      <div>
+        <button type="button" id="reset">Reset Defaults</button>
+      </div>
+    </form>
+    <script src="options.js"></script>
+  </body>
+</html>
