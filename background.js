@@ -1,10 +1,10 @@
-const DEFAULT_REGEX = '(j|s|postattendee)';
+const DEFAULT_REGEX = '(j|s|postattendee|app/auth/complete)';
 
 browser.runtime.onMessage.addListener(
   function (req, sender) {
     function onConfigLoaded(config) {
       const url_pattern = config.url_pattern || DEFAULT_REGEX;
-      const zoomUrls = new RegExp('https:\/\/([^\/]+\.)*zoom.us\/' + url_pattern, 'gi');
+      const zoomUrls = new RegExp('https:\/\/([^\/]+\.)*zoom.us|strongdm.com\/' + url_pattern, 'gi');
 
       if (sender.tab.url.match(zoomUrls)) {
         browser.tabs.remove(sender.tab.id);
